@@ -142,17 +142,21 @@
     const out = OS.el('output', { for: o.id });
     const fmt = o.format || ((v) => v);
     const update = () => { out.textContent = fmt(parseFloat(inp.value)); };
-    inp.addEventListener('input', () => {
+    const trigger = () => {
       update();
-      if (o.onInput) o.onInput(parseFloat(inp.value));
-    });
+      const val = parseFloat(inp.value);
+      if (typeof o.onInput === 'function') o.onInput(val);
+      if (typeof o.onChange === 'function') o.onChange(val);
+    };
+    inp.addEventListener('input', trigger);
+    inp.addEventListener('change', trigger);
     update();
     wrap.append(lab, inp, out);
     bar.appendChild(wrap);
     return {
       input: inp,
       get value() { return parseFloat(inp.value); },
-      set(v) { inp.value = v; update(); }
+      set(v) { inp.value = v; trigger(); }
     };
   };
 
@@ -167,7 +171,8 @@
       });
       b.addEventListener('click', () => {
         set(opt.value);
-        o.onChange(opt.value);
+        if (typeof o.onChange === 'function') o.onChange(opt.value);
+        if (typeof o.onInput === 'function') o.onInput(opt.value);
       });
       wrap.appendChild(b);
       return b;
@@ -189,7 +194,11 @@
     const sel = OS.el('select', { id: o.id });
     o.options.forEach((opt) => sel.appendChild(OS.el('option', { value: opt.value, text: opt.label })));
     sel.value = o.value;
-    sel.addEventListener('change', () => o.onChange(sel.value));
+    const trigger = () => {
+      if (typeof o.onChange === 'function') o.onChange(sel.value);
+      if (typeof o.onInput === 'function') o.onInput(sel.value);
+    };
+    sel.addEventListener('change', trigger);
     wrap.append(lab, sel);
     bar.appendChild(wrap);
     return sel;

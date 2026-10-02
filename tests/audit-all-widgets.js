@@ -85,6 +85,7 @@ global.document = {
 };
 
 function checkCoords(...vals) {
+  global._totalCanvasDrawCalls = (global._totalCanvasDrawCalls || 0) + 1;
   for (const v of vals) {
     if (typeof v === 'number' && (isNaN(v) || !isFinite(v))) {
       throw new Error(`Invalid NaN/Infinite coordinate in canvas drawing: ${v}`);
@@ -261,16 +262,22 @@ for (const name of simNames) {
       }
     }
     
-    // 2. Test sliders through range
+    // 2. Test sliders through range and assert active canvas reactivity
     for (const s of sliders) {
       const min = parseFloat(s.attributes.min || 0);
       const max = parseFloat(s.attributes.max || 100);
       const step = parseFloat(s.attributes.step || 1);
       
+      const beforeCalls = global._totalCanvasDrawCalls || 0;
       [min, (min + max) / 2, max].forEach(val => {
         s.value = String(val);
         s.dispatchEvent('input');
+        s.dispatchEvent('change');
       });
+      const afterCalls = global._totalCanvasDrawCalls || 0;
+      if (afterCalls <= beforeCalls) {
+        throw new Error(`Dead Slider Detected: Slider did not trigger any canvas drawing or redraw upon input/change! Check onChange/onInput wiring.`);
+      }
     }
     
     // 3. Test selects through all options
