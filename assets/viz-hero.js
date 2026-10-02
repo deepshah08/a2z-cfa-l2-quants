@@ -168,10 +168,10 @@
     OS.segmented(controls, {
       label: 'Econometric Violation',
       options: [
-        { label: 'Standard OLS (BLUE)', value: 'none' },
-        { label: 'Heteroskedasticity ⚡', value: 'hetero' },
-        { label: 'Serial Correlation 📈', value: 'serial' },
-        { label: 'Multicollinearity 👥', value: 'multi' }
+        { label: 'None (BLUE)', value: 'none' },
+        { label: 'Heteroskedastic ⚡', value: 'hetero' },
+        { label: 'Serial Corr 📈', value: 'serial' },
+        { label: 'Multicollinear 👥', value: 'multi' }
       ],
       value: violation,
       onChange: (v) => { violation = v; render(); }
