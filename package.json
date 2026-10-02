@@ -1,0 +1,22 @@
+{
+  "name": "a2z-cfa-l2-quants",
+  "version": "1.0.0",
+  "description": "CFA Level II: Quantitative Methods, Model by Model — An Explorable Econometric & Machine Learning Field Guide",
+  "main": "index.html",
+  "scripts": {
+    "test": "node tests/audit-all-widgets.js"
+  },
+  "keywords": [
+    "cfa",
+    "cfa-level-2",
+    "quantitative-methods",
+    "econometrics",
+    "multiple-regression",
+    "time-series",
+    "machine-learning",
+    "big-data",
+    "explorable-explanation"
+  ],
+  "author": "Deep Shah",
+  "license": "MIT"
+}

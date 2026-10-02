@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CFA Level II: Quantitative Methods, Model by Model — An Explorable Econometric &amp; Machine Learning Field Guide</title>
+  <meta name="description" content="An interactive, visual field guide to the official CFA Level II Quantitative Methods curriculum: multiple regression, ANOVA, econometric misspecifications, time-series forecasting, unit roots, cointegration, machine learning algorithms, and Big Data financial pipelines.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+          onload="if (typeof renderMathInElement === 'function') renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="brand">
+    <span class="badge">CURRICULUM</span>
+    <span class="title">CFA Level II: Quantitative Methods</span>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">◐ Theme</button>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Interactive Financial Econometrics &amp; Machine Learning</p>
+    <h1>CFA Level II: Quantitative Methods, Model by Model</h1>
+    <p class="lede">A rigorous, interactive visual field guide covering the complete official CFA Level II Quantitative Methods curriculum. From multiple regression assumptions and ANOVA decomposition to heteroskedasticity corrections, unit root Dickey-Fuller tests, cointegration, penalized machine learning, and Big Data text wrangling.</p>
+    <p class="hero-hint">↓ Test the flagship Multi-Factor Econometric Studio below or navigate directly through the curriculum.</p>
+  </div>
+  <figure class="viz viz-hero" data-viz="quantsArenaHero">
+    <figcaption>Figure 00 — The Multi-Factor Econometric &amp; Machine Learning Quant Studio: Inject conditional heteroskedasticity, serial correlation, or severe multicollinearity into multi-factor asset returns; compare standard OLS vs. White vs. Newey-West vs. Ridge/Lasso estimators with live ANOVA diagnostics.</figcaption>
+  </figure>
+</section>
+
+<div class="layout">
+  <nav class="toc" aria-label="Table of contents">
+    <details class="toc-details" open>
+      <summary>Curriculum Index</summary>
+      <ol class="toc-list">
+        <li class="toc-part">Part I · Multiple Regression &amp; Diagnostics</li>
+        <li><a href="#ch-01"><span class="toc-num">01</span><span>Multiple Regression &amp; Assumptions</span></a></li>
+        <li><a href="#ch-02"><span class="toc-num">02</span><span>Hypothesis Testing &amp; t-Distribution</span></a></li>
+        <li><a href="#ch-03"><span class="toc-num">03</span><span>ANOVA &amp; Adjusted R²</span></a></li>
+        <li><a href="#ch-04"><span class="toc-num">04</span><span>Joint F-Statistic Testing</span></a></li>
+        <li><a href="#ch-05"><span class="toc-num">05</span><span>Prediction Intervals &amp; Forecasting</span></a></li>
+
+        <li class="toc-part">Part II · Misspecification &amp; Violations</li>
+        <li><a href="#ch-06"><span class="toc-num">06</span><span>Heteroskedasticity &amp; Breusch-Pagan</span></a></li>
+        <li><a href="#ch-07"><span class="toc-num">07</span><span>Serial Correlation &amp; Durbin-Watson</span></a></li>
+        <li><a href="#ch-08"><span class="toc-num">08</span><span>Multicollinearity &amp; VIF</span></a></li>
+        <li><a href="#ch-09"><span class="toc-num">09</span><span>Omitted Variable Bias &amp; Form</span></a></li>
+
+        <li class="toc-part">Part III · Extensions &amp; Time-Series Analysis</li>
+        <li><a href="#ch-10"><span class="toc-num">10</span><span>Dummy Variables &amp; Shifts</span></a></li>
+        <li><a href="#ch-11"><span class="toc-num">11</span><span>Logistic Regression &amp; Odds Ratios</span></a></li>
+        <li><a href="#ch-12"><span class="toc-num">12</span><span>Influence &amp; Cook's Distance</span></a></li>
+        <li><a href="#ch-13"><span class="toc-num">13</span><span>Time-Series Trends &amp; Stationarity</span></a></li>
+        <li><a href="#ch-14"><span class="toc-num">14</span><span>Autoregressive AR(1) &amp; Reversion</span></a></li>
+        <li><a href="#ch-15"><span class="toc-num">15</span><span>Unit Roots &amp; Dickey-Fuller</span></a></li>
+        <li><a href="#ch-16"><span class="toc-num">16</span><span>Cointegration &amp; ARCH Models</span></a></li>
+
+        <li class="toc-part">Part IV · Machine Learning &amp; Big Data</li>
+        <li><a href="#ch-17"><span class="toc-num">17</span><span>Penalized Regression: Ridge &amp; Lasso</span></a></li>
+        <li><a href="#ch-18"><span class="toc-num">18</span><span>Decision Trees &amp; Random Forests</span></a></li>
+        <li><a href="#ch-19"><span class="toc-num">19</span><span>SVM &amp; k-Nearest Neighbors</span></a></li>
+        <li><a href="#ch-20"><span class="toc-num">20</span><span>PCA &amp; k-Means Clustering</span></a></li>
+        <li><a href="#ch-21"><span class="toc-num">21</span><span>Model Evaluation &amp; ROC-AUC</span></a></li>
+        <li><a href="#ch-22"><span class="toc-num">22</span><span>Big Data NLP Text Wrangling</span></a></li>
+      </ol>
+    </details>
+  </nav>
+
+  <main class="content">
+
+    <!-- ====================================================================
+         PART I: MULTIPLE REGRESSION & MODEL DIAGNOSTICS
+         ==================================================================== -->
+    <header class="part-head" id="part-1">
+      <span class="part-label">Part I</span>
+      <h2>Multiple Regression &amp; Model Diagnostics</h2>
+      <p class="part-desc">Foundations of multi-factor econometric modeling: Ordinary Least Squares (OLS), the Gauss-Markov theorem, coefficient inference, ANOVA decomposition, and confidence vs. prediction intervals.</p>
+    </header>
+
+    <!-- Chapter 01 -->
+    <section class="chapter" id="ch-01">
+      <div class="ch-meta"><span class="ch-num">01</span> <span class="ch-tag">Multiple Regression</span></div>
+      <h3>Multiple Linear Regression &amp; Classic Assumptions</h3>
+      <p>The standard multiple linear regression model relates a dependent variable $Y$ to $k$ independent explanatory variables $X_1, X_2, \dots, X_k$:</p>
+      $$Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_k X_{ki} + \epsilon_i$$
+      <p>Under the <strong>Gauss-Markov Theorem</strong>, OLS estimators are <strong>BLUE</strong> (Best Linear Unbiased Estimators), achieving minimum variance among all unbiased linear estimators when six classical assumptions hold:</p>
+      <ol>
+        <li><strong>Linearity in Parameters:</strong> The relationship between $Y$ and the parameters is linear.</li>
+        <li><strong>No Perfect Collinearity:</strong> No exact linear relationship exists between two or more independent variables.</li>
+        <li><strong>Zero Expected Disturbance:</strong> $\mathbb{E}(\epsilon_i | X) = 0$.</li>
+        <li><strong>Homoskedasticity:</strong> Constant variance of errors: $\text{Var}(\epsilon_i) = \sigma^2$.</li>
+        <li><strong>No Serial Correlation:</strong> $\text{Cov}(\epsilon_i, \epsilon_j) = 0$ for all $i \neq j$.</li>
+        <li><strong>Normality of Errors:</strong> $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$ (required for finite-sample hypothesis testing).</li>
+      </ol>
+      <div class="callout tip">
+        <strong>Partial Regression Coefficient Interpretation:</strong> Each slope coefficient $\hat{b}_j$ represents the expected change in $Y$ for a 1-unit increase in $X_j$, <em>holding all other $k-1$ independent variables strictly constant</em>.
+      </div>
+      <figure class="viz" data-viz="olsRegression">
+        <figcaption>Figure 01 — Multiple Regression Plane &amp; Residual Stems: Adjust partial slopes $\hat{b}_1$ and $\hat{b}_2$ and watch residual disturbance minimization in real time.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 02 -->
+    <section class="chapter" id="ch-02">
+      <div class="ch-meta"><span class="ch-num">02</span> <span class="ch-tag">Hypothesis Testing</span></div>
+      <h3>Hypothesis Testing, t-Distribution &amp; Confidence Intervals</h3>
+      <p>To test whether a factor significantly impacts asset returns, we test the null hypothesis $H_0: b_j = B_0$ (typically $B_0 = 0$) against $H_a: b_j \neq B_0$ using the Student's $t$-statistic with $n - k - 1$ degrees of freedom:</p>
+      $$t = \frac{\hat{b}_j - B_0}{s_{\hat{b}_j}}, \quad df = n - k - 1$$
+      <p>A $(1 - \alpha)$ confidence interval for the true population coefficient is constructed as:</p>
+      $$\hat{b}_j \pm t_{c, \, \alpha/2} \times s_{\hat{b}_j}$$
+      <figure class="viz" data-viz="hypothesisTesting">
+        <figcaption>Figure 02 — Student's t-Distribution Critical Region: Vary sample $t$-statistic, significance level $\alpha$, and degrees of freedom $n - k - 1$ to determine statistical significance.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 03 -->
+    <section class="chapter" id="ch-03">
+      <div class="ch-meta"><span class="ch-num">03</span> <span class="ch-tag">ANOVA Mechanics</span></div>
+      <h3>ANOVA Decomposition: SST, SSR, SSE &amp; Adjusted R²</h3>
+      <p>Total variation in $Y$ is decomposed via the Analysis of Variance identity:</p>
+      $$\text{SST} = \text{SSR} + \text{SSE} \implies \sum (Y_i - \bar{Y})^2 = \sum (\hat{Y}_i - \bar{Y})^2 + \sum e_i^2$$
+      <p>The standard coefficient of determination $R^2 = \frac{\text{SSR}}{\text{SST}} = 1 - \frac{\text{SSE}}{\text{SST}}$ <em>never decreases</em> when new variables are added, even if irrelevant. To penalize model bloat, <strong>Adjusted $\bar{R}^2$</strong> imposes a degrees-of-freedom penalty:</p>
+      $$\bar{R}^2 = 1 - \left[ \frac{n - 1}{n - k - 1} (1 - R^2) \right]$$
+      <div class="callout note">
+        <strong>Exam Key Fact:</strong> $\bar{R}^2$ is always $\le R^2$, can become negative when a model has weak explanatory power and high $k$, and only increases if the added regressor's $|t| > 1$.
+      </div>
+      <figure class="viz" data-viz="anovaDecomposition">
+        <figcaption>Figure 03 — Dynamic ANOVA Table &amp; Sum of Squares Partition: Adjust model $R^2$, sample size $n$, and regressor count $k$ to observe the divergence between $R^2$ and Adjusted $\bar{R}^2$.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 04 -->
+    <section class="chapter" id="ch-04">
+      <div class="ch-meta"><span class="ch-num">04</span> <span class="ch-tag">F-Test Significance</span></div>
+      <h3>Joint Hypothesis Testing &amp; The F-Statistic</h3>
+      <p>While individual $t$-tests evaluate one coefficient at a time, the <strong>F-test</strong> conducts a joint hypothesis test determining whether <em>all slope coefficients are simultaneously zero</em>:</p>
+      $$H_0: b_1 = b_2 = \dots = b_k = 0 \quad \text{vs.} \quad H_a: \text{At least one } b_j \neq 0$$
+      $$F = \frac{\text{MSR}}{\text{MSE}} = \frac{\text{SSR} / k}{\text{SSE} / (n - k - 1)}$$
+      <p>The F-statistic follows an asymmetric F-distribution with $(k, n - k - 1)$ degrees of freedom. Because it measures whether the regression explains significantly more variance than random noise, it is strictly a <strong>one-tailed test</strong> evaluated in the right tail.</p>
+      <figure class="viz" data-viz="fDistributionTest">
+        <figcaption>Figure 04 — Asymmetric F-Distribution Right-Tail Rejection Stage: Adjust numerator and denominator degrees of freedom to observe F critical thresholds.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 05 -->
+    <section class="chapter" id="ch-05">
+      <div class="ch-meta"><span class="ch-num">05</span> <span class="ch-tag">Forecasting</span></div>
+      <h3>Prediction Intervals vs. Confidence Intervals</h3>
+      <p>Given forecasted regressor values $X_{1,f}, \dots, X_{k,f}$, the point forecast is $\hat{Y}_f = \hat{b}_0 + \sum \hat{b}_j X_{j,f}$. However, the uncertainty around this prediction depends critically on what is being forecasted:</p>
+      <ul>
+        <li><strong>Confidence Interval for Conditional Mean $E(Y|X_f)$:</strong> Uncertainty arises only from parameter estimation error $s_{\hat{Y}}^2 = \text{MSE} \left[ \frac{1}{n} + \frac{(X_f - \bar{X})^2}{\sum (X_i - \bar{X})^2} \right]$.</li>
+        <li><strong>Prediction Interval for an Individual Observation $Y_f$:</strong> Must account for both parameter estimation error AND future random error variance: $s_f^2 = \text{MSE} \left[ 1 + \frac{1}{n} + \frac{(X_f - \bar{X})^2}{\sum (X_i - \bar{X})^2} \right]$.</li>
+      </ul>
+      <div class="callout warning">
+        <strong>Exam Rule:</strong> Prediction intervals are <em>always wider</em> than confidence intervals for the conditional mean due to the extra $+1 \times \text{MSE}$ term under the square root. Both expand hyperbolically as $X_f$ moves away from sample mean $\bar{X}$.
+      </div>
+      <figure class="viz" data-viz="forecastIntervals">
+        <figcaption>Figure 05 — Hyperbolic Prediction Envelope: Move $X_f$ away from sample mean $\bar{X}$ to watch the expansion of prediction bounds.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ====================================================================
+         PART II: MODEL MISSPECIFICATION & ECONOMETRIC VIOLATIONS
+         ==================================================================== -->
+    <header class="part-head" id="part-2">
+      <span class="part-label">Part II</span>
+      <h2>Model Misspecification &amp; Econometric Violations</h2>
+      <p class="part-desc">The core diagnostic triad tested on CFA Level II: Heteroskedasticity, Serial Correlation, and Multicollinearity. Detection algorithms, consequences on OLS inference, and robust covariance corrections.</p>
+    </header>
+
+    <!-- Chapter 06 -->
+    <section class="chapter" id="ch-06">
+      <div class="ch-meta"><span class="ch-num">06</span> <span class="ch-tag">Heteroskedasticity</span></div>
+      <h3>Heteroskedasticity: Breusch-Pagan &amp; White Robust SE</h3>
+      <p><strong>Heteroskedasticity</strong> occurs when the variance of the error term is non-constant across observations. Unconditional heteroskedasticity creates no major inference issues, but <strong>conditional heteroskedasticity</strong> (where error variance correlates with independent variables) breaks classical inference:</p>
+      <ul>
+        <li><strong>Consequences:</strong> OLS parameter estimates $\hat{b}_j$ remain <em>unbiased and consistent</em>, but OLS standard errors $s_{\hat{b}_j}$ are <b>understated</b>. Understated standard errors artificially inflate $t$-statistics and $F$-statistics, causing <strong>Type I errors</strong> (false discoveries).</li>
+        <li><strong>Detection:</strong> The <strong>Breusch-Pagan test</strong> regresses squared OLS residuals $e_i^2$ on the independent variables:
+          $$\text{BP Statistic} = n \times R^2_{\text{resid}} \sim \chi^2_k$$
+        </li>
+        <li><strong>Remedy:</strong> Compute <strong>White's heteroskedasticity-consistent (robust) standard errors</strong> or use Generalized Least Squares (GLS). Never re-estimate with unadjusted OLS!</li>
+      </ul>
+      <figure class="viz" data-viz="heteroskedasticityLab">
+        <figcaption>Figure 06 — Fan-Shaped Residual Scatter &amp; Breusch-Pagan Test: Compare homoskedastic vs. conditional heteroskedastic spreads; toggle White robust standard errors.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 07 -->
+    <section class="chapter" id="ch-07">
+      <div class="ch-meta"><span class="ch-num">07</span> <span class="ch-tag">Serial Correlation</span></div>
+      <h3>Serial Correlation: Durbin-Watson &amp; Newey-West SE</h3>
+      <p>When residuals correlate across time ($\epsilon_t = \rho \epsilon_{t-1} + u_t$), the regression suffers from <strong>Autocorrelation</strong>. Common in financial time series with momentum or macroeconomic persistence:</p>
+      <ul>
+        <li><strong>Consequences:</strong> Like heteroskedasticity, coefficients remain <em>unbiased and consistent</em>, but standard errors are severely <b>understated</b> when positive serial correlation ($\rho > 0$) exists, inflating $t$-statistics and invalidating $F$-tests.</li>
+        <li><strong>Detection:</strong> The <strong>Durbin-Watson statistic</strong>:
+          $$\text{DW} \approx 2(1 - r) \quad \text{where } r \text{ is sample residual correlation}$$
+          If $\text{DW} < d_L$, reject $H_0$ in favor of positive serial correlation. If $d_L \le \text{DW} \le d_U$, the test is inconclusive. If $\text{DW} \approx 2.0$, no serial correlation exists.
+        </li>
+        <li><strong>Remedy:</strong> Compute <strong>Newey-West (Hansen-White) standard errors</strong>, which adjust for <em>both</em> serial correlation and heteroskedasticity. Note: White standard errors do NOT correct for serial correlation!</li>
+      </ul>
+      <figure class="viz" data-viz="serialCorrelationLab">
+        <figcaption>Figure 07 — Serial Correlation Time Sequence &amp; Durbin-Watson Diagnostic: Slide autocorrelation $\rho$ to observe clustering of positive/negative residuals and Newey-West standard error correction.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 08 -->
+    <section class="chapter" id="ch-08">
+      <div class="ch-meta"><span class="ch-num">08</span> <span class="ch-tag">Multicollinearity</span></div>
+      <h3>Multicollinearity: Variance Inflation Factor &amp; Remedies</h3>
+      <p><strong>Multicollinearity</strong> arises when two or more independent variables are highly (though not perfectly) correlated. For example, simultaneously including Fama-French SMB and HML when value and size factors co-move:</p>
+      <ul>
+        <li><strong>Consequences:</strong> Coefficients remain unbiased and consistent, but standard errors $s_{\hat{b}_j}$ are <b>inflated</b>. Regressors lose individual statistical significance despite the overall regression model being highly predictive.</li>
+        <li><strong>Classic Symptom:</strong> <em>High $R^2$ and highly significant overall $F$-statistic, but low/insignificant individual $t$-statistics</em> across the collinear variables.</li>
+        <li><strong>Detection:</strong> Pairwise correlation $> 0.7$ (sufficient but not necessary); <strong>Variance Inflation Factor</strong>:
+          $$\text{VIF}_j = \frac{1}{1 - R_j^2} \quad (\text{VIF} > 5 \text{ or } 10 \text{ signals severe multicollinearity})$$
+        </li>
+        <li><strong>Remedy:</strong> Drop one of the redundant collinear variables, acquire more sample data, or use dimensionality reduction (Ridge regression or PCA).</li>
+      </ul>
+      <figure class="viz" data-viz="multicollinearityLab">
+        <figcaption>Figure 08 — Multicollinearity VIF Meter &amp; Paradoxical Diagnostics: Adjust pairwise correlation $r(X_1, X_2)$ to watch individual $t$-statistics collapse while overall $F$-statistic remains high.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 09 -->
+    <section class="chapter" id="ch-09">
+      <div class="ch-meta"><span class="ch-num">09</span> <span class="ch-tag">Model Misspecification</span></div>
+      <h3>Omitted Variable Bias &amp; Functional Form Errors</h3>
+      <p>Unlike heteroskedasticity, serial correlation, or multicollinearity (where OLS coefficients remain unbiased), <strong>omitting a relevant independent variable</strong> renders OLS estimators <strong>both biased and inconsistent</strong> if the omitted variable correlates with any included regressor:</p>
+      $$\text{Bias}(\hat{b}_1) = \beta_2 \times \frac{\text{Cov}(X_1, X_2)}{\text{Var}(X_1)}$$
+      <div class="callout danger">
+        <strong>Exam Trap:</strong> If an omitted factor $X_2$ has a positive relationship with $Y$ ($\beta_2 > 0$) and correlates positively with included $X_1$ ($\text{Cov} > 0$), $\hat{b}_1$ suffers from <strong>positive upward bias</strong>. If one is negative and one positive, downward bias occurs!
+      </div>
+      <figure class="viz" data-viz="omittedVariableBias">
+        <figcaption>Figure 09 — Omitted Variable Bias Vector Engine: Adjust omitted regressor parameter $\beta_2$ and regressor correlation to observe bias shift away from the true population coefficient.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ====================================================================
+         PART III: EXTENSIONS & TIME-SERIES ANALYSIS
+         ==================================================================== -->
+    <header class="part-head" id="part-3">
+      <span class="part-label">Part III</span>
+      <h2>Extensions &amp; Time-Series Analysis</h2>
+      <p class="part-desc">Advanced regression modeling and dynamic time sequences: Dummy qualitative variables, Logistic regression, Outlier Cook's distance, Covariance stationarity, Autoregressive AR(1) models, Unit roots, and ARCH volatility clustering.</p>
+    </header>
+
+    <!-- Chapter 10 -->
+    <section class="chapter" id="ch-10">
+      <div class="ch-meta"><span class="ch-num">10</span> <span class="ch-tag">Dummy Variables</span></div>
+      <h3>Qualitative Regressors: Dummy Variables &amp; Shifts</h3>
+      <p>Dummy variables take values of 0 or 1 to capture qualitative attributes or regime shifts (e.g., Bull vs. Bear market, pre-crisis vs. post-crisis). To model $M$ mutually exclusive categories, include exactly <strong>$M - 1$ dummy variables</strong> to avoid the <strong>Dummy Variable Trap</strong> (perfect multicollinearity with intercept $b_0$).</p>
+      <p>Dummies can alter regression geometry in two ways:</p>
+      <ul>
+        <li><strong>Intercept Dummy ($b_2 D$):</strong> Causes a parallel vertical shift of the regression line.</li>
+        <li><strong>Slope Dummy / Interaction Term ($b_3 (X \times D)$):</strong> Alters the slope/sensitivity of $Y$ with respect to $X$, rotating the regression line.</li>
+      </ul>
+      <figure class="viz" data-viz="dummyVariablesLab">
+        <figcaption>Figure 10 — Intercept Shift vs. Slope Interaction: Toggle between parallel dummy shifts and interactive slope rotations across economic regimes.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 11 -->
+    <section class="chapter" id="ch-11">
+      <div class="ch-meta"><span class="ch-num">11</span> <span class="ch-tag">Logistic Regression</span></div>
+      <h3>Binary Dependent Variables: Logit &amp; Odds Ratios</h3>
+      <p>When modeling discrete qualitative outcomes (e.g., Bankruptcy vs. Solvency, Acquisition vs. Independence), the Linear Probability Model (LPM) produces predicted probabilities outside $[0, 1]$. <strong>Logistic Regression (Logit)</strong> resolves this via the sigmoid link function:</p>
+      $$P(Y = 1) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X)}}$$
+      <p>The transformation linearizes the <strong>log-odds (logit)</strong>:</p>
+      $$\ln\left(\frac{P}{1 - P}\right) = \beta_0 + \beta_1 X \implies \text{Odds Ratio (OR)} = e^{\beta_1}$$
+      <p>For every 1-unit increase in $X$, the odds of the event occurring are multiplied by $e^{\beta_1}$. Logit models are estimated using <strong>Maximum Likelihood Estimation (MLE)</strong> rather than OLS.</p>
+      <figure class="viz" data-viz="logisticRegressionLab">
+        <figcaption>Figure 11 — Sigmoid S-Curve &amp; Probability Cutoff Threshold: Manipulate logit slope $b_1$ and threshold to observe odds ratios and classification decisions.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 12 -->
+    <section class="chapter" id="ch-12">
+      <div class="ch-meta"><span class="ch-num">12</span> <span class="ch-tag">Influence Analysis</span></div>
+      <h3>Influence Analysis: Leverage, Outliers &amp; Cook's Distance</h3>
+      <p>Not all outliers distort regression models equally. A regression analyst must distinguish between leverage and influence:</p>
+      <ul>
+        <li><strong>Outlier:</strong> An observation with an extreme residual $e_i$ in the dependent variable $Y$.</li>
+        <li><strong>High Leverage Point:</strong> An observation with extreme values in the independent variables $X$ (measured by the diagonal element of the hat matrix $h_{ii}$).</li>
+        <li><strong>Influential Observation:</strong> A point combining high leverage with a large studentized residual, unilaterally altering parameter estimates. Measured by <strong>Cook's Distance</strong>:
+          $$D_i > 1.0 \quad \text{or} \quad D_i > \frac{4}{n} \implies \text{Highly Influential Observation}$$
+        </li>
+      </ul>
+      <figure class="viz" data-viz="influenceAnalysisLab">
+        <figcaption>Figure 12 — Cook's Distance &amp; Leverage Explorer: Reposition the outlier across the feature space; observe Cook's $D_i$ surge and distort the fitted regression slope.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 13 -->
+    <section class="chapter" id="ch-13">
+      <div class="ch-meta"><span class="ch-num">13</span> <span class="ch-tag">Time-Series Trends</span></div>
+      <h3>Time-Series Trends &amp; Covariance Stationarity</h3>
+      <p>Before estimating time-series regressions, an analyst must verify <strong>Covariance Stationarity</strong>. A time series is covariance stationary if it satisfies three strict properties:</p>
+      <ol>
+        <li>Constant, finite expected value over time: $\mathbb{E}(y_t) = \mu$ for all $t$.</li>
+        <li>Constant, finite variance over time: $\text{Var}(y_t) = \sigma^2$ for all $t$.</li>
+        <li>Covariance between any two periods depends solely on the distance between them (lag $s$), not calendar time: $\text{Cov}(y_t, y_{t-s}) = \gamma_s$.</li>
+      </ol>
+      <p>If a series exhibits a deterministic trend, linear trends ($y_t = b_0 + b_1 t$) model constant absolute dollar increments, while log-linear trends ($\ln y_t = b_0 + b_1 t$) model constant percentage exponential growth.</p>
+      <figure class="viz" data-viz="timeSeriesTrends">
+        <figcaption>Figure 13 — Linear vs. Log-Linear Trend Evolution: Compare constant absolute dollar growth against constant percentage exponential growth trajectories.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 14 -->
+    <section class="chapter" id="ch-14">
+      <div class="ch-meta"><span class="ch-num">14</span> <span class="ch-tag">Autoregressive Models</span></div>
+      <h3>Autoregressive AR(1) Models &amp; Mean Reversion</h3>
+      <p>An <strong>Autoregressive model of order 1</strong> ($AR(1)$) regresses a time series on its own immediate past value:</p>
+      $$x_t = b_0 + b_1 x_{t-1} + \epsilon_t$$
+      <p>For an $AR(1)$ series to be covariance stationary, its persistence coefficient must satisfy <strong>$|b_1| < 1$</strong>. Under this condition, the series exhibits a finite <strong>Mean Reverting Level</strong>:</p>
+      $$x_L = \frac{b_0}{1 - b_1}$$
+      <p>Forecasts are generated recursively via the <strong>Chain Rule of Forecasting</strong>:</p>
+      $$\hat{x}_{t+1} = b_0 + b_1 x_t, \quad \hat{x}_{t+2} = b_0 + b_1 \hat{x}_{t+1} = b_0 + b_1 (b_0 + b_1 x_t)$$
+      <figure class="viz" data-viz="autoregressiveLab">
+        <figcaption>Figure 14 — AR(1) Mean Reversion &amp; Chain Rule Multi-Step Forecast: Set persistence $b_1$ and watch multi-step horizons converge asymptotically to mean reverting level $x_L$.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 15 -->
+    <section class="chapter" id="ch-15">
+      <div class="ch-meta"><span class="ch-num">15</span> <span class="ch-tag">Unit Roots</span></div>
+      <h3>Random Walks, Unit Roots &amp; Dickey-Fuller Testing</h3>
+      <p>When $b_1 = 1$, the model becomes a <strong>Random Walk</strong> ($x_t = x_{t-1} + \epsilon_t$) and possesses a <strong>Unit Root</strong>. Its variance expands indefinitely ($\text{Var}(x_t) = t \sigma^2$), mean reversion is undefined ($x_L = 0/0$), and standard OLS $t$-tests produce <strong>spurious regressions</strong> (apparent statistical significance between completely unrelated series).</p>
+      <p>To detect a unit root, we apply the <strong>Dickey-Fuller (DF) test</strong> on the transformed regression:</p>
+      $$x_t - x_{t-1} = b_0 + g x_{t-1} + \epsilon_t \quad (\text{where } g = b_1 - 1)$$
+      $$H_0: g = 0 \text{ (Unit Root / Non-Stationary)} \quad \text{vs.} \quad H_a: g < 0 \text{ (Stationary)}$$
+      <div class="callout tip">
+        <strong>Remedy:</strong> If a unit root is confirmed, transform the series by <strong>First-Differencing</strong>: $y_t = x_t - x_{t-1}$. An $I(1)$ series integrated of order 1 becomes an $I(0)$ stationary series upon differencing.
+      </div>
+      <figure class="viz" data-viz="dickeyFullerLab">
+        <figcaption>Figure 15 — Random Walk Unit Root vs. Stationary Paths: Observe non-stationary random walks, Dickey-Fuller test statistics, and first-differencing transformations.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 16 -->
+    <section class="chapter" id="ch-16">
+      <div class="ch-meta"><span class="ch-num">16</span> <span class="ch-tag">Cointegration &amp; ARCH</span></div>
+      <h3>Seasonality, Cointegration &amp; ARCH Models</h3>
+      <p>Two essential advanced time-series structures tested at Level II:</p>
+      <ul>
+        <li><strong>Cointegration:</strong> If two time series $X_t \sim I(1)$ and $Y_t \sim I(1)$ are individually non-stationary, but a linear combination $e_t = Y_t - \beta X_t \sim I(0)$ is stationary, the two series are <strong>Cointegrated</strong>. This reflects a true long-run economic equilibrium (e.g., spot and futures prices). Tested via the <em>Engle-Granger test</em>. Standard regression between them is valid without differencing!</li>
+        <li><strong>Autoregressive Conditional Heteroskedasticity (ARCH):</strong> Financial returns exhibit volatility clustering where calm periods follow calm periods and crises follow crises:
+          $$\sigma_t^2 = a_0 + a_1 e_{t-1}^2 + u_t$$
+          If $a_1 > 0$ and statistically significant, an $ARCH(1)$ process exists. OLS standard errors are invalid; Generalized Autoregressive Conditional Heteroskedasticity (GARCH) or ARCH estimation must be employed.
+        </li>
+      </ul>
+      <figure class="viz" data-viz="cointegrationArchLab">
+        <figcaption>Figure 16 — Cointegration Equilibrium vs. ARCH Volatility Clustering: Toggle between mean-reverting cointegration spreads and volatility shocks under ARCH(1).</figcaption>
+      </figure>
+    </section>
+
+    <!-- ====================================================================
+         PART IV: MACHINE LEARNING & BIG DATA PROJECTS
+         ==================================================================== -->
+    <header class="part-head" id="part-4">
+      <span class="part-label">Part IV</span>
+      <h2>Machine Learning &amp; Big Data Projects</h2>
+      <p class="part-desc">Modern quantitative workflows in asset management: Penalized regression (Ridge, Lasso), Supervised learners (Trees, Random Forests, SVM, KNN), Unsupervised clustering (PCA, k-Means), Performance evaluation (ROC-AUC), and Big Data NLP pipelines.</p>
+    </header>
+
+    <!-- Chapter 17 -->
+    <section class="chapter" id="ch-17">
+      <div class="ch-meta"><span class="ch-num">17</span> <span class="ch-tag">Penalized Regression</span></div>
+      <h3>Penalized Regression: Ridge (L2) vs. Lasso (L1)</h3>
+      <p>When estimating multi-factor investment models with hundreds of potential factors, standard OLS overfits and suffers from severe multicollinearity. <strong>Penalized regression</strong> adds a penalty term proportional to coefficient magnitude to the cost function:</p>
+      <ul>
+        <li><strong>Ridge Regression (L2 Penalty $\lambda \sum b_j^2$):</strong> Shrinks coefficients toward zero to reduce estimation variance. Due to spherical geometry, coefficients <em>approach zero asymptotically but are never set strictly to zero</em>. Retains all predictors.</li>
+        <li><strong>Lasso Regression (L1 Penalty $\lambda \sum |b_j|$):</strong> Imposes a diamond-shaped constraint in parameter space. Forces uninformative coefficients to <strong>exactly zero</strong>, performing automated feature selection and producing sparse models.</li>
+        <li><strong>Elastic Net:</strong> Combines both penalties ($\alpha L1 + (1 - \alpha) L2$) to handle groups of highly correlated factors.</li>
+      </ul>
+      <figure class="viz" data-viz="penalizedRegressionLab">
+        <figcaption>Figure 17 — Ridge Shrinkage vs. Lasso Feature Sparsity: Increase penalty parameter $\lambda$ to observe factor shrinkage and Lasso zero-thresholding.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 18 -->
+    <section class="chapter" id="ch-18">
+      <div class="ch-meta"><span class="ch-num">18</span> <span class="ch-tag">Ensemble Learning</span></div>
+      <h3>Decision Trees (CART) &amp; Random Forests</h3>
+      <p>Classification and Regression Trees (CART) partition feature space through recursive binary splits, maximizing purity at each split (measured via Gini Impurity $G = 1 - \sum p_i^2$ or Entropy). Unpruned trees have high variance and suffer from severe overfitting.</p>
+      <p>Ensemble methods overcome this limitation:</p>
+      <ul>
+        <li><strong>Bagging (Bootstrap Aggregating):</strong> Trains multiple trees in parallel on randomly resampled subsets of training data and averages predictions.</li>
+        <li><strong>Random Forests:</strong> Extends bagging by sampling a <em>random subset of features at each node split</em>, decorrelating individual trees and significantly reducing model variance.</li>
+        <li><strong>Boosting:</strong> Trains trees sequentially, with each subsequent learner focusing on the residual errors of prior trees (e.g., AdaBoost, Gradient Boosting).</li>
+      </ul>
+      <figure class="viz" data-viz="decisionTreeLab">
+        <figcaption>Figure 18 — CART Feature Space Partitioning: Vary maximum tree depth and observe the progression from generalized decision stumps to overfitted decision boundaries.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 19 -->
+    <section class="chapter" id="ch-19">
+      <div class="ch-meta"><span class="ch-num">19</span> <span class="ch-tag">Supervised Classifiers</span></div>
+      <h3>Support Vector Machines (SVM) &amp; k-Nearest Neighbors</h3>
+      <p>Two essential non-linear supervised classifiers applied to equity selection and credit scoring:</p>
+      <ul>
+        <li><strong>Support Vector Machine (SVM):</strong> Identifies the optimal <strong>maximum-margin hyperplane</strong> separating investment classes. Support vectors are the critical data points lying closest to the boundary. The hyperparameter $C$ balances margin width against misclassification penalties. The <em>kernel trick</em> projects non-linear data into higher dimensional space.</li>
+        <li><strong>k-Nearest Neighbors (KNN):</strong> A non-parametric, lazy learner that classifies a target based on majority vote among its $k$ closest neighbors in feature space. Small $k$ leads to high variance (overfitting); large $k$ leads to high bias (underfitting).</li>
+      </ul>
+      <figure class="viz" data-viz="svmKnnLab">
+        <figcaption>Figure 19 — SVM Margin Hyperplane vs. KNN Neighborhoods: Adjust regularization penalty $C$ and neighbor count $k$ to observe decision boundaries.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 20 -->
+    <section class="chapter" id="ch-20">
+      <div class="ch-meta"><span class="ch-num">20</span> <span class="ch-tag">Unsupervised Learning</span></div>
+      <h3>Unsupervised Learning: PCA &amp; k-Means Clustering</h3>
+      <p>Unsupervised algorithms uncover latent structures without target labels:</p>
+      <ul>
+        <li><strong>Principal Component Analysis (PCA):</strong> Transforms $k$ correlated financial regressors into linearly uncorrelated <strong>principal components</strong> ($PC_1, PC_2, \dots$) ordered by variance explained (eigenvalues). Eliminates multicollinearity while preserving total portfolio risk information. A <em>scree plot</em> locates the elbow cutoff.</li>
+        <li><strong>k-Means Clustering:</strong> Partitions assets into $k$ non-overlapping clusters by iteratively assigning observations to the nearest centroid and recalculating centroid means until within-cluster sum of squares is minimized. Sensitive to initial centroid placement and scale.</li>
+      </ul>
+      <figure class="viz" data-viz="pcaClusteringLab">
+        <figcaption>Figure 20 — PCA Eigenvector Rotation &amp; Asset Risk Clustering: Rotate correlated factor clouds into principal component axes; segment equities into k-means risk clusters.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 21 -->
+    <section class="chapter" id="ch-21">
+      <div class="ch-meta"><span class="ch-num">21</span> <span class="ch-tag">Model Evaluation</span></div>
+      <h3>Cross-Validation, Confusion Matrix &amp; ROC-AUC</h3>
+      <p>Evaluating machine learning models requires robust out-of-sample validation to prevent data snooping and overfitting. $K$-fold cross-validation splits data into $K$ partitions, iteratively training on $K-1$ and validating on 1.</p>
+      <p>For classification tasks, performance is evaluated using the <strong>Confusion Matrix</strong>:</p>
+      <ul>
+        <li><strong>Precision:</strong> $\frac{\text{TP}}{\text{TP} + \text{FP}}$ (Percentage of positive predictions that are truly positive).</li>
+        <li><strong>Recall (Sensitivity):</strong> $\frac{\text{TP}}{\text{TP} + \text{FN}}$ (Percentage of actual positive cases correctly identified).</li>
+        <li><strong>Specificity:</strong> $\frac{\text{TN}}{\text{TN} + \text{FP}}$ (True negative rate).</li>
+        <li><strong>F1-Score:</strong> Harmonic mean balancing precision and recall: $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$.</li>
+        <li><strong>ROC Curve &amp; AUC:</strong> Plots Sensitivity vs. $(1 - \text{Specificity})$ across all classification thresholds. AUC measures ranking discrimination ability ($\text{AUC} = 0.5$ is random, $1.0$ is perfect).</li>
+      </ul>
+      <figure class="viz" data-viz="modelEvaluationLab">
+        <figcaption>Figure 21 — Interactive Confusion Matrix &amp; ROC-AUC Operating Curve: Slide classification threshold; observe the trade-off between Precision and Recall.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Chapter 22 -->
+    <section class="chapter" id="ch-22">
+      <div class="ch-meta"><span class="ch-num">22</span> <span class="ch-tag">Big Data NLP</span></div>
+      <h3>Big Data Financial Projects: Text Wrangling &amp; NLP</h3>
+      <p>Big Data in investment analysis spans <em>Volume</em>, <em>Velocity</em>, and <em>Variety</em> (particularly unstructured text from 10-K filings, earnings calls, and news feeds). The financial Natural Language Processing (NLP) pipeline comprises:</p>
+      <ol>
+        <li><strong>Tokenization:</strong> Splitting raw text into individual word tokens.</li>
+        <li><strong>Normalization:</strong> Converting text to lowercase and removing punctuation/special characters.</li>
+        <li><strong>Stop Word Removal:</strong> Filtering high-frequency grammatical words ("the", "is", "at") carrying zero analytical signal.</li>
+        <li><strong>Lemmatization vs. Stemming:</strong> Lemmatization uses morphological dictionary vocabulary to reduce words to meaningful base roots (e.g., "expanding" $\to$ "expand"), whereas crude stemming chops word endings via heuristics.</li>
+        <li><strong>TF-IDF Vectorization:</strong> Weighs terms by local document frequency and inverse corpus frequency: $\text{TF-IDF} = \text{TF} \times \ln(N / \text{DF})$.</li>
+      </ol>
+      <div class="callout note">
+        <strong>Financial Backtesting Biases:</strong> Big Data pipelines must strictly guard against <strong>lookahead bias</strong> (using data unavailable at time $t$), <strong>survivorship bias</strong> (excluding defunct firms), and <strong>data snooping bias</strong> (torturing data until spurious significance appears).
+      </div>
+      <figure class="viz" data-viz="nlpWranglingLab">
+        <figcaption>Figure 22 — Natural Language Processing Earnings Transcript Pipeline: Step through raw text, tokenization, stop-word elimination, lemmatization, and TF-IDF sentiment scoring.</figcaption>
+      </figure>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <p><b>CFA Level II: Quantitative Methods, Model by Model</b></p>
+    <p>Synthesizing the official CFA Institute Level II Quantitative Methods curriculum into an explorable, visual architectural field guide. Pure HTML5, CSS3, ES6+ Canvas, and KaTeX typography. Zero build step required.</p>
+  </div>
+</footer>
+
+<script src="assets/core.js"></script>
+<script src="assets/viz-hero.js"></script>
+<script src="assets/viz-regression.js"></script>
+<script src="assets/viz-diagnostics.js"></script>
+<script src="assets/viz-timeseries.js"></script>
+<script src="assets/viz-ml.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    OS.boot();
+  });
+</script>
+</body>
+</html>
